@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tiny.cloud/1/74czl6vhyu8fuum9mmvwtbjyu6rnmbx75blg4ywfqdx7ylah/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <title>Blog</title>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="text" name="assunt" value="<%- up.assunto %>">
+        <input type="text" name="desc" value="<%- up.descricao %>">
+        <textarea name="texto" id="txt"></textarea>
+        <button>Atualizar</button>
+    </form>
+</body>
+<div id="id" style="display: none;">
+    <%- up.texto %> 
+</div>
+<script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+      toolbar_mode: 'floating',
+   });
+   var txt = document.getElementById('id').innerHTML
+   document.getElementById('txt').value = txt
+</script>
+</html>

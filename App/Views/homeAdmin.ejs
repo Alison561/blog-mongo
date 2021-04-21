@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Artigos</h1>
+
+    <% article.forEach(e => { %>
+        <div class="article" style="max-width: 300px;">
+            <div class="img" style="max-width: 100%;">
+                <img src="/Uploads/<%= e.img %> " alt="<%= e.img %>" style="max-width: 300px;">
+            </div>
+            <div class="desc">
+                <h2><%= e.assunto %></h2>
+                <%- e.texto.substr(0, 300) %>
+            </div>
+            <a href="del/<%= e._id %>">Exclui</a>
+            <a href="edit/<%= e._id %>">editar</a>
+        </div>
+    <% }) %>
+</body>
+</html>
